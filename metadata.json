@@ -1,0 +1,6 @@
+{
+  "name": "PokéTier Studio",
+  "description": "Aplicativo de Tier List com 10 níveis para ranquear todos os Pokémon existentes com PokéAPI, arrastar e soltar, busca, filtros e múltiplos ranks personalizáveis com persistência.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
