@@ -14859,5 +14859,466 @@
     "rarity": "common",
     "isRegional": false,
     "isMega": true
+  },
+  {
+    "id": 10195,
+    "name": "venusaur-gmax",
+    "displayName": "Venusaur G-Max",
+    "gen": 8,
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "rarity": "starter",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10196,
+    "name": "charizard-gmax",
+    "displayName": "Charizard G-Max",
+    "gen": 8,
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "rarity": "starter",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10197,
+    "name": "blastoise-gmax",
+    "displayName": "Blastoise G-Max",
+    "gen": 8,
+    "types": [
+      "water"
+    ],
+    "rarity": "starter",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10198,
+    "name": "butterfree-gmax",
+    "displayName": "Butterfree G-Max",
+    "gen": 8,
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10199,
+    "name": "pikachu-gmax",
+    "displayName": "Pikachu G-Max",
+    "gen": 8,
+    "types": [
+      "electric"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10200,
+    "name": "meowth-gmax",
+    "displayName": "Meowth G-Max",
+    "gen": 8,
+    "types": [
+      "normal"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10201,
+    "name": "machamp-gmax",
+    "displayName": "Machamp G-Max",
+    "gen": 8,
+    "types": [
+      "fighting"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10202,
+    "name": "gengar-gmax",
+    "displayName": "Gengar G-Max",
+    "gen": 8,
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10203,
+    "name": "kingler-gmax",
+    "displayName": "Kingler G-Max",
+    "gen": 8,
+    "types": [
+      "water"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10204,
+    "name": "lapras-gmax",
+    "displayName": "Lapras G-Max",
+    "gen": 8,
+    "types": [
+      "water",
+      "ice"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10205,
+    "name": "eevee-gmax",
+    "displayName": "Eevee G-Max",
+    "gen": 8,
+    "types": [
+      "normal"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10206,
+    "name": "snorlax-gmax",
+    "displayName": "Snorlax G-Max",
+    "gen": 8,
+    "types": [
+      "normal"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10207,
+    "name": "garbodor-gmax",
+    "displayName": "Garbodor G-Max",
+    "gen": 8,
+    "types": [
+      "poison"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10208,
+    "name": "melmetal-gmax",
+    "displayName": "Melmetal G-Max",
+    "gen": 8,
+    "types": [
+      "steel"
+    ],
+    "rarity": "mythical",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10209,
+    "name": "rillaboom-gmax",
+    "displayName": "Rillaboom G-Max",
+    "gen": 8,
+    "types": [
+      "grass"
+    ],
+    "rarity": "starter",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10210,
+    "name": "cinderace-gmax",
+    "displayName": "Cinderace G-Max",
+    "gen": 8,
+    "types": [
+      "fire"
+    ],
+    "rarity": "starter",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10211,
+    "name": "inteleon-gmax",
+    "displayName": "Inteleon G-Max",
+    "gen": 8,
+    "types": [
+      "water"
+    ],
+    "rarity": "starter",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10212,
+    "name": "corviknight-gmax",
+    "displayName": "Corviknight G-Max",
+    "gen": 8,
+    "types": [
+      "flying",
+      "steel"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10213,
+    "name": "orbeetle-gmax",
+    "displayName": "Orbeetle G-Max",
+    "gen": 8,
+    "types": [
+      "bug",
+      "psychic"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10214,
+    "name": "drednaw-gmax",
+    "displayName": "Drednaw G-Max",
+    "gen": 8,
+    "types": [
+      "water",
+      "rock"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10215,
+    "name": "coalossal-gmax",
+    "displayName": "Coalossal G-Max",
+    "gen": 8,
+    "types": [
+      "rock",
+      "fire"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10216,
+    "name": "flapple-gmax",
+    "displayName": "Flapple G-Max",
+    "gen": 8,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10217,
+    "name": "appletun-gmax",
+    "displayName": "Appletun G-Max",
+    "gen": 8,
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10218,
+    "name": "sandaconda-gmax",
+    "displayName": "Sandaconda G-Max",
+    "gen": 8,
+    "types": [
+      "ground"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10219,
+    "name": "toxtricity-amped-gmax",
+    "displayName": "Toxtricity Amped G-Max",
+    "gen": 8,
+    "types": [
+      "electric",
+      "poison"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10220,
+    "name": "centiskorch-gmax",
+    "displayName": "Centiskorch G-Max",
+    "gen": 8,
+    "types": [
+      "fire",
+      "bug"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10221,
+    "name": "hatterene-gmax",
+    "displayName": "Hatterene G-Max",
+    "gen": 8,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10222,
+    "name": "grimmsnarl-gmax",
+    "displayName": "Grimmsnarl G-Max",
+    "gen": 8,
+    "types": [
+      "dark",
+      "fairy"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10223,
+    "name": "alcremie-gmax",
+    "displayName": "Alcremie G-Max",
+    "gen": 8,
+    "types": [
+      "fairy"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10224,
+    "name": "copperajah-gmax",
+    "displayName": "Copperajah G-Max",
+    "gen": 8,
+    "types": [
+      "steel"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10225,
+    "name": "duraludon-gmax",
+    "displayName": "Duraludon G-Max",
+    "gen": 8,
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10226,
+    "name": "urshifu-single-strike-gmax",
+    "displayName": "Urshifu Single Strike G-Max",
+    "gen": 8,
+    "types": [
+      "fighting",
+      "dark"
+    ],
+    "rarity": "legendary",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10227,
+    "name": "urshifu-rapid-strike-gmax",
+    "displayName": "Urshifu Rapid Strike G-Max",
+    "gen": 8,
+    "types": [
+      "fighting",
+      "water"
+    ],
+    "rarity": "legendary",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
+  },
+  {
+    "id": 10228,
+    "name": "toxtricity-low-key-gmax",
+    "displayName": "Toxtricity Low Key G-Max",
+    "gen": 8,
+    "types": [
+      "electric",
+      "poison"
+    ],
+    "rarity": "common",
+    "isRegional": false,
+    "isMega": false,
+    "isGmax": true
   }
 ]

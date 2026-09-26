@@ -27,7 +27,7 @@ Um criador de tier list moderno, minimalista e flat para ranquear Pokémon de to
 - **Filtros Avançados**:
   - Por Geração (Gen 1 a 9).
   - Por Tipo (Fogo, Água, Planta, etc.) e Raridade (Comum, Lendário, Mítico, etc.).
-  - Filtro por Formas Regionais (Alola, Galar, Hisui, Paldea) e alternador dedicado para Mega Evoluções.
+  - Filtro por Formas Regionais (Alola, Galar, Hisui, Paldea) e alternadores dedicados para Mega Evoluções e Gigantamax (G-Max).
 - **Estilos de Sprite**:
   - Artwork Oficial (HD)
   - 3D Renders (Pokémon HOME)

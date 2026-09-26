@@ -328,6 +328,24 @@ export default function App() {
     });
   };
 
+  // Toggle Gigantamax (G-Max) in the active rank
+  const handleToggleGmax = () => {
+    updateActiveTierList(current => {
+      const newIncludeGmax = !current.includeGmax;
+      const newFilterSettings = {
+        ...current.filterSettings,
+        includeGmax: newIncludeGmax,
+      };
+      const eligible = computeEligiblePokemonIds(newFilterSettings);
+      return {
+        ...current,
+        includeGmax: newIncludeGmax,
+        filterSettings: newFilterSettings,
+        eligiblePokemonIds: eligible,
+      };
+    });
+  };
+
   // Randomize 5 unranked pokemon into random tiers
   const handleRandomRankBatch = (count: number) => {
     if (!activeTierList) return;
@@ -472,7 +490,9 @@ export default function App() {
             imageStyle={activeTierList.imageStyle || 'artwork'}
             showShiny={!!activeTierList.showShiny}
             includeMegas={!!activeTierList.includeMegas}
+            includeGmax={!!activeTierList.includeGmax}
             onToggleMegas={handleToggleMegas}
+            onToggleGmax={handleToggleGmax}
             onDropPokemonBackToPool={handleDropPokemonBackToPool}
             onSelectPokemon={(poke) => setSelectedPokemon(poke)}
             onRandomRankBatch={handleRandomRankBatch}
@@ -486,7 +506,7 @@ export default function App() {
       <footer className="mt-auto border-t border-[#1e1e1e] bg-[#141414] py-3 text-center text-xs text-neutral-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>
-            1184 Pokémon disponíveis (Gerações 1 a 9, Formas Regionais e Mega Evoluções).
+            1218 Pokémon disponíveis (Gerações 1 a 9, Formas Regionais, Mega Evoluções e Gigantamax).
           </p>
           <div className="flex items-center gap-3 text-neutral-500">
             <span>Salvo localmente</span>

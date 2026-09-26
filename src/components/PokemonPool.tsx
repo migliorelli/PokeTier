@@ -18,7 +18,9 @@ interface PokemonPoolProps {
   imageStyle: ImageStyle;
   showShiny: boolean;
   includeMegas: boolean;
+  includeGmax?: boolean;
   onToggleMegas: () => void;
+  onToggleGmax?: () => void;
   onDropPokemonBackToPool: (pokemonId: number) => void;
   onSelectPokemon: (pokemon: Pokemon) => void;
   onClearAllRanks?: () => void;
@@ -33,7 +35,9 @@ export const PokemonPool: React.FC<PokemonPoolProps> = ({
   imageStyle,
   showShiny,
   includeMegas,
+  includeGmax = false,
   onToggleMegas,
+  onToggleGmax,
   onDropPokemonBackToPool,
   onSelectPokemon,
   onRandomRankBatch,
@@ -45,7 +49,7 @@ export const PokemonPool: React.FC<PokemonPoolProps> = ({
   const [selectedType, setSelectedType] = useState<PokemonType | 'all'>('all');
   const [selectedRarity, setSelectedRarity] = useState<PokemonRarity | 'all'>('all');
   const [statusFilter, setStatusFilter] = useState<'all' | 'unranked' | 'ranked'>('unranked');
-  const [specialFormFilter, setSpecialFormFilter] = useState<'all' | 'regional' | 'mega'>('all');
+  const [specialFormFilter, setSpecialFormFilter] = useState<'all' | 'regional' | 'mega' | 'gmax'>('all');
   const [showFiltersPanel, setShowFiltersPanel] = useState(false);
   const [page, setPage] = useState(1);
   const [isDragOver, setIsDragOver] = useState(false);
@@ -66,10 +70,12 @@ export const PokemonPool: React.FC<PokemonPoolProps> = ({
       types: selectedType === 'all' ? undefined : [selectedType],
       rarities: selectedRarity === 'all' ? undefined : [selectedRarity],
       includeMegas: true, // already filtered in eligible, but keep true here
+      includeGmax: true,
       query: searchQuery,
     }).filter(p => {
       if (specialFormFilter === 'regional' && !p.isRegional) return false;
       if (specialFormFilter === 'mega' && !p.isMega) return false;
+      if (specialFormFilter === 'gmax' && !p.isGmax) return false;
 
       const isRanked = rankedPokemonIds.has(p.id);
       if (statusFilter === 'unranked') return !isRanked;
@@ -149,6 +155,22 @@ export const PokemonPool: React.FC<PokemonPoolProps> = ({
             >
               <span>Megas: {includeMegas ? 'Ativado' : 'Desativado'}</span>
             </button>
+
+            {/* Gigantamax toggle button */}
+            {onToggleGmax && (
+              <button
+                type="button"
+                onClick={onToggleGmax}
+                title="Habilitar ou desabilitar Gigantamax na lista"
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded transition-colors ${
+                  includeGmax
+                    ? 'bg-[#e06c75] text-[#121212] font-semibold'
+                    : 'bg-[#222222] hover:bg-[#282828] text-neutral-300'
+                }`}
+              >
+                <span>G-Max: {includeGmax ? 'Ativado' : 'Desativado'}</span>
+              </button>
+            )}
 
             {/* Image style select */}
             <select
@@ -346,6 +368,22 @@ export const PokemonPool: React.FC<PokemonPoolProps> = ({
                     }`}
                   >
                     Apenas Mega Evoluções
+                  </button>
+                )}
+                {includeGmax && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSpecialFormFilter('gmax');
+                      setPage(1);
+                    }}
+                    className={`px-2.5 py-1 text-xs rounded font-medium transition-colors ${
+                      specialFormFilter === 'gmax'
+                        ? 'bg-[#e06c75] text-[#121212] font-semibold'
+                        : 'bg-[#202020] text-neutral-400 hover:text-neutral-200'
+                    }`}
+                  >
+                    Apenas Gigantamax (G-Max)
                   </button>
                 )}
               </div>

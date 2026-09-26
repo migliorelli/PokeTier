@@ -20,6 +20,7 @@ export function computeEligiblePokemonIds(filterSettings: TierListFilterSettings
     types: filterSettings.types,
     rarities: filterSettings.rarities,
     includeMegas: filterSettings.includeMegas,
+    includeGmax: filterSettings.includeGmax,
     includeRegional: filterSettings.includeRegional !== false,
   });
   return filtered.map(p => p.id);
@@ -35,6 +36,7 @@ export function createNewTierList(options: {
     ...options.filterSettings,
     includeRegional: options.filterSettings.includeRegional !== false,
     includeMegas: !!options.filterSettings.includeMegas,
+    includeGmax: !!options.filterSettings.includeGmax,
   };
   const eligiblePokemonIds = computeEligiblePokemonIds(filterSettings);
   const tiers: Tier[] = options.tiers
@@ -57,6 +59,7 @@ export function createNewTierList(options: {
     imageStyle: 'artwork',
     showShiny: false,
     includeMegas: filterSettings.includeMegas,
+    includeGmax: filterSettings.includeGmax,
   };
 }
 

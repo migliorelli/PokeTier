@@ -40,6 +40,7 @@ export interface Pokemon {
   stage?: 'basic' | 'stage1' | 'stage2' | 'legendary';
   isRegional?: boolean;
   isMega?: boolean;
+  isGmax?: boolean;
 }
 
 export interface Tier {
@@ -56,6 +57,7 @@ export interface TierListFilterSettings {
   types: PokemonType[];
   rarities: PokemonRarity[];
   includeMegas?: boolean;
+  includeGmax?: boolean;
   includeRegional?: boolean;
 }
 
@@ -72,6 +74,7 @@ export interface TierList {
   imageStyle?: ImageStyle;
   showShiny?: boolean;
   includeMegas?: boolean;
+  includeGmax?: boolean;
 }
 
 export interface TypeInfo {

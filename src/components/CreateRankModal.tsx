@@ -25,6 +25,7 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
   const [selectedTypes, setSelectedTypes] = useState<PokemonType[]>([...ALL_TYPES]);
   const [selectedRarities, setSelectedRarities] = useState<PokemonRarity[]>([...ALL_RARITIES]);
   const [includeMegas, setIncludeMegas] = useState(false);
+  const [includeGmax, setIncludeGmax] = useState(false);
   const [includeRegional, setIncludeRegional] = useState(true);
 
   useEffect(() => {
@@ -44,9 +45,10 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
       types: selectedTypes,
       rarities: selectedRarities,
       includeMegas,
+      includeGmax,
       includeRegional,
     }).length;
-  }, [selectedGens, selectedTypes, selectedRarities, includeMegas, includeRegional]);
+  }, [selectedGens, selectedTypes, selectedRarities, includeMegas, includeGmax, includeRegional]);
 
   if (!isOpen) return null;
 
@@ -60,6 +62,7 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
         setSelectedTypes([...ALL_TYPES]);
         setSelectedRarities([...ALL_RARITIES]);
         setIncludeMegas(false);
+        setIncludeGmax(false);
         setIncludeRegional(true);
         break;
       case 'all_megas':
@@ -69,6 +72,17 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
         setSelectedTypes([...ALL_TYPES]);
         setSelectedRarities([...ALL_RARITIES]);
         setIncludeMegas(true);
+        setIncludeGmax(false);
+        setIncludeRegional(true);
+        break;
+      case 'all_forms':
+        setTitle('Todos + Megas + Gigantamax');
+        setDescription('');
+        setSelectedGens([...ALL_GENS]);
+        setSelectedTypes([...ALL_TYPES]);
+        setSelectedRarities([...ALL_RARITIES]);
+        setIncludeMegas(true);
+        setIncludeGmax(true);
         setIncludeRegional(true);
         break;
       case 'starters':
@@ -141,6 +155,7 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
         types: selectedTypes,
         rarities: selectedRarities,
         includeMegas,
+        includeGmax,
         includeRegional,
       },
     });
@@ -194,6 +209,13 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
                 className="px-2.5 py-1 bg-[#222222] hover:bg-[#282828] text-neutral-300 rounded text-xs font-medium transition-colors"
               >
                 Todos + Mega Evoluções
+              </button>
+              <button
+                type="button"
+                onClick={() => applyPreset('all_forms')}
+                className="px-2.5 py-1 bg-[#222222] hover:bg-[#282828] text-neutral-300 rounded text-xs font-medium transition-colors"
+              >
+                Todos + Megas + Gigantamax
               </button>
               <button
                 type="button"
@@ -255,12 +277,12 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
             </div>
           </div>
 
-          {/* Special Forms Options (Mega & Regional) */}
+          {/* Special Forms Options (Mega, Gigantamax & Regional) */}
           <div className="p-3 bg-[#141414] rounded space-y-2">
             <span className="block text-[11px] font-semibold text-neutral-300 uppercase tracking-wider mb-1">
               Formas Especiais
             </span>
-            <div className="flex flex-col sm:flex-row gap-3 text-xs">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 text-xs">
               <label className="flex items-center gap-2 cursor-pointer select-none text-neutral-300">
                 <input
                   type="checkbox"
@@ -268,7 +290,7 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
                   onChange={(e) => setIncludeRegional(e.target.checked)}
                   className="accent-[#e06c75]"
                 />
-                <span>Incluir Formas Regionais (Alola, Galar, Hisui, Paldea)</span>
+                <span>Formas Regionais (Alola, Galar, Hisui, Paldea)</span>
               </label>
               <label className="flex items-center gap-2 cursor-pointer select-none text-neutral-300">
                 <input
@@ -278,6 +300,15 @@ export const CreateRankModal: React.FC<CreateRankModalProps> = ({
                   className="accent-[#e06c75]"
                 />
                 <span className="text-[#e06c75] font-medium">Habilitar Mega Evoluções</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer select-none text-neutral-300">
+                <input
+                  type="checkbox"
+                  checked={includeGmax}
+                  onChange={(e) => setIncludeGmax(e.target.checked)}
+                  className="accent-[#e06c75]"
+                />
+                <span className="text-[#e06c75] font-medium">Habilitar Gigantamax (G-Max)</span>
               </label>
             </div>
           </div>

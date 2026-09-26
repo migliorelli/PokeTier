@@ -1,0 +1,163 @@
+import fs from 'node:fs';
+import { Resvg } from '@resvg/resvg-js';
+
+// 1. Generate Favicon PNGs from SVG
+const faviconSvg = fs.readFileSync('public/favicon.svg', 'utf8');
+
+const resvg32 = new Resvg(faviconSvg, { fitTo: { mode: 'width', value: 64 } });
+fs.writeFileSync('public/favicon.png', resvg32.render().asPng());
+
+const resvg180 = new Resvg(faviconSvg, { fitTo: { mode: 'width', value: 180 } });
+fs.writeFileSync('public/apple-touch-icon.png', resvg180.render().asPng());
+
+console.log('Favicon PNG and Apple Touch Icon generated successfully!');
+
+// 2. Generate 1200x630 OpenGraph Banner for WhatsApp, Discord, Twitter, Facebook
+const bannerSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="25%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#241b1d" />
+      <stop offset="50%" stop-color="#141416" />
+      <stop offset="100%" stop-color="#0c0c0e" />
+    </radialGradient>
+
+    <radialGradient id="pokeballGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Pokéball gradients -->
+    <linearGradient id="topDome" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f87171" />
+      <stop offset="50%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+
+    <linearGradient id="bottomDome" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+
+    <linearGradient id="buttonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+
+    <clipPath id="ballClip">
+      <circle cx="160" cy="160" r="148" />
+    </clipPath>
+  </defs>
+
+  <!-- Dark Canvas Base -->
+  <rect width="1200" height="630" fill="url(#bgGlow)" />
+
+  <!-- Subtle Grid pattern overlay -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="315" x2="1200" y2="315" />
+    <line x1="0" y1="420" x2="1200" y2="420" />
+    <line x1="0" y1="525" x2="1200" y2="525" />
+    <line x1="200" y1="0" x2="200" y2="630" />
+    <line x1="400" y1="0" x2="400" y2="630" />
+    <line x1="600" y1="0" x2="600" y2="630" />
+    <line x1="800" y1="0" x2="800" y2="630" />
+    <line x1="1000" y1="0" x2="1000" y2="630" />
+  </g>
+
+  <!-- Left: Glowing Emblem -->
+  <circle cx="280" cy="315" r="280" fill="url(#pokeballGlow)" />
+
+  <g transform="translate(120, 155)" filter="url(#shadow)">
+    <!-- Base dark rim -->
+    <circle cx="160" cy="160" r="154" fill="#0f172a" />
+
+    <g clip-path="url(#ballClip)">
+      <!-- Top Red -->
+      <path d="M12 160 A148 148 0 0 1 308 160 Z" fill="url(#topDome)" />
+      <!-- Specular Highlight -->
+      <ellipse cx="160" cy="75" rx="100" ry="40" fill="#ffffff" opacity="0.22" />
+      <!-- Bottom White -->
+      <path d="M12 160 A148 148 0 0 0 308 160 Z" fill="url(#bottomDome)" />
+      <!-- Dark middle division -->
+      <rect x="0" y="146" width="320" height="28" fill="#0f172a" />
+    </g>
+
+    <!-- Center Button -->
+    <circle cx="160" cy="160" r="50" fill="#0f172a" />
+    <circle cx="160" cy="160" r="32" fill="url(#buttonGrad)" stroke="#0f172a" stroke-width="7" />
+    <circle cx="160" cy="160" r="16" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
+    <circle cx="156" cy="156" r="5" fill="#ffffff" />
+  </g>
+
+  <!-- Right: App Branding and Badges -->
+  <g transform="translate(520, 150)">
+    <!-- Pill tag -->
+    <rect x="0" y="0" width="180" height="32" rx="6" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" />
+    <text x="14" y="21" font-family="sans-serif" font-size="13" font-weight="700" fill="#f87171" letter-spacing="1">TIER LIST MAKER</text>
+
+    <!-- App Title -->
+    <text x="0" y="105" font-family="sans-serif" font-size="76" font-weight="900" fill="#ffffff" letter-spacing="-1.5">PokéTier</text>
+
+    <!-- Subtitle / Hook -->
+    <text x="0" y="155" font-family="sans-serif" font-size="22" font-weight="600" fill="#e2e8f0">
+      Crie e compartilhe seus Ranks de Pokémon
+    </text>
+
+    <!-- Feature Highlights -->
+    <text x="0" y="195" font-family="sans-serif" font-size="17" font-weight="400" fill="#94a3b8">
+      1.218 Pokémon • Gen 1 a 9 • Megas • Gigantamax • Regionais
+    </text>
+
+    <!-- Tier list visual preview bar -->
+    <g transform="translate(0, 240)">
+      <!-- Tier S+ -->
+      <rect x="0" y="0" width="90" height="48" rx="6" fill="#ff7f7f" />
+      <text x="45" y="32" font-family="sans-serif" font-size="20" font-weight="800" fill="#1e1e1e" text-anchor="middle">S+</text>
+
+      <!-- Tier S -->
+      <rect x="100" y="0" width="90" height="48" rx="6" fill="#ffbf7f" />
+      <text x="145" y="32" font-family="sans-serif" font-size="20" font-weight="800" fill="#1e1e1e" text-anchor="middle">S</text>
+
+      <!-- Tier A -->
+      <rect x="200" y="0" width="90" height="48" rx="6" fill="#ffff7f" />
+      <text x="245" y="32" font-family="sans-serif" font-size="20" font-weight="800" fill="#1e1e1e" text-anchor="middle">A</text>
+
+      <!-- Tier B -->
+      <rect x="300" y="0" width="90" height="48" rx="6" fill="#7fff7f" />
+      <text x="345" y="32" font-family="sans-serif" font-size="20" font-weight="800" fill="#1e1e1e" text-anchor="middle">B</text>
+
+      <!-- Tier C -->
+      <rect x="400" y="0" width="90" height="48" rx="6" fill="#7fffff" />
+      <text x="445" y="32" font-family="sans-serif" font-size="20" font-weight="800" fill="#1e1e1e" text-anchor="middle">C</text>
+
+      <!-- Tier D -->
+      <rect x="500" y="0" width="90" height="48" rx="6" fill="#7f7fff" />
+      <text x="545" y="32" font-family="sans-serif" font-size="20" font-weight="800" fill="#1e1e1e" text-anchor="middle">D</text>
+    </g>
+
+    <!-- Bottom perks -->
+    <g transform="translate(0, 320)" fill="#64748b" font-family="sans-serif" font-size="14" font-weight="500">
+      <text x="0" y="0">✓ Drag &amp; Drop Suave</text>
+      <text x="180" y="0">✓ Exportação em Imagem</text>
+      <text x="390" y="0">✓ 100% Gratuito</text>
+    </g>
+  </g>
+</svg>`;
+
+fs.writeFileSync('public/og-image.svg', bannerSvg);
+
+const resvgBanner = new Resvg(bannerSvg, {
+  fitTo: { mode: 'width', value: 1200 },
+  font: {
+    loadSystemFonts: true,
+  }
+});
+fs.writeFileSync('public/og-image.png', resvgBanner.render().asPng());
+console.log('Banner og-image.png (1200x630) generated successfully!');

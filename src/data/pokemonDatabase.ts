@@ -51,16 +51,22 @@ export function filterPokemon(
     types?: PokemonType[];
     rarities?: PokemonRarity[];
     includeMegas?: boolean;
+    includeGmax?: boolean;
     includeRegional?: boolean;
     query?: string;
   }
 ): Pokemon[] {
-  const { gens, types, rarities, includeMegas = false, includeRegional = true, query } = filters;
+  const { gens, types, rarities, includeMegas = false, includeGmax = false, includeRegional = true, query } = filters;
   const cleanQuery = query?.trim().toLowerCase();
 
   return pokemonList.filter(p => {
     // Mega evolution filter: only included if enabled
     if (p.isMega && !includeMegas) {
+      return false;
+    }
+
+    // Gigantamax filter: only included if enabled
+    if (p.isGmax && !includeGmax) {
       return false;
     }
 
